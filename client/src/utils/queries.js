@@ -6,32 +6,33 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
+      haikus {
         _id
-        thoughtText
+        haikuText
         createdAt
       }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
+
+export const QUERY_HAIKUS = gql` 
+  query getHaikus {
+    haikus {
       _id
-      thoughtText
-      thoughtAuthor
+      haikuText
+      haikuAuthor
       createdAt
     }
   }
 `;
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
+export const QUERY_SINGLE_HAIKU = gql`
+  query getSingleHaiku($haikuId: ID!) {
+    haiku(haikuId: $haikuId) {
       _id
-      thoughtText
-      thoughtAuthor
+      haikuText
+      haikuAuthor
       createdAt
       comments {
         _id
@@ -49,10 +50,10 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      haikus {
         _id
-        thoughtText
-        thoughtAuthor
+        haikuText
+        haikuAuthor
         createdAt
       }
     }
