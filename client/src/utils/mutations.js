@@ -1,5 +1,8 @@
 import { gql } from '@apollo/client';
 
+
+// ME FALTA EL REMOVE HAIKU Y REMOVE COMMENT 
+//LO SAQUÉ DE TYPE MUTATIONS EN TYPDEFS
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -24,12 +27,12 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($thoughtText: String!) {
-    addThought(thoughtText: $thoughtText) {
+export const ADD_HAIKU = gql`
+  mutation addHaiku($haikuText: String!) {
+    addHaiku(haikuText: $haikuText) {
       _id
-      thoughtText
-      thoughtAuthor
+      haikuText
+      haikuAuthor
       createdAt
       comments {
         _id
@@ -40,11 +43,11 @@ export const ADD_THOUGHT = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($thoughtId: ID!, $commentText: String!) {
-    addComment(thoughtId: $thoughtId, commentText: $commentText) {
+  mutation addComment($haikuId: ID!, $commentText: String!) {
+    addComment(haikuId: $haikuId, commentText: $commentText) {
       _id
-      thoughtText
-      thoughtAuthor
+      haikuText
+      haikuAuthor
       createdAt
       comments {
         _id
