@@ -10,10 +10,8 @@ const haikuSchema = new Schema({
     trim: true,
   },
   haikuAuthor: {
-    type: Schema.Types.ObjectId,
+    type: String,
     required: true,
-    trim: true,
-    ref: "User"
   },
   createdAt: {
     type: Date,
@@ -29,9 +27,8 @@ const haikuSchema = new Schema({
         maxlength: 300,
       },
       commentAuthor: {
-        type: Schema.Types.ObjectId,
+        type: String,
         required: true,
-        ref: "User"
       },
       createdAt: {
         type: Date,
@@ -40,15 +37,7 @@ const haikuSchema = new Schema({
       },
     },
   ],
-  likes: [
-    {
-      userId: {
-        type: Schema.Types.ObjectId,
-        required: false,
-        ref: "User"
-      }
-    }
-  ]
+  likes: [String],
 });
 
 const Haiku = model('Haiku', haikuSchema);

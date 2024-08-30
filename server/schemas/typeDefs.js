@@ -1,4 +1,4 @@
-const typeDefs = `
+const typeDefs = `#graphql
   type User {
     _id: ID
     username: String
@@ -13,10 +13,10 @@ const typeDefs = `
     haikuAuthor: String
     createdAt: String
     comments: [Comment]!
-    like: [User]
+    likes: [String]
   }
 
-  type Comment {
+  type Comment { 
     _id: ID
     commentText: String
     commentAuthor: String
