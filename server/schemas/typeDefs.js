@@ -13,6 +13,7 @@ const typeDefs = `
     haikuAuthor: String
     createdAt: String
     comments: [Comment]!
+    like: [User]
   }
 
   type Comment {
@@ -42,6 +43,7 @@ const typeDefs = `
     addComment(haikuId: ID!, commentText: String!): Haiku
     removeHaiku(haikuId: ID!): Haiku
     removeComment(haikuId: ID!, commentId: ID!): Haiku
+    addLike(haikuId: ID!): Haiku
   }
 `;
 
