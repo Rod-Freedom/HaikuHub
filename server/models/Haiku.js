@@ -4,15 +4,16 @@ const dateFormat = require('../utils/dateFormat');
 const haikuSchema = new Schema({
   haikuText: {
     type: String,
-    required: 'Write a Haiku', //o no se mijos no se me ocurre 
+    required: true, //o no se mijos no se me ocurre 
     minlength: 1,
-    maxlength: 280,
+    maxlength: 300,
     trim: true,
   },
   haikuAuthor: {
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true,
     trim: true,
+    ref: "User"
   },
   createdAt: {
     type: Date,
@@ -25,11 +26,12 @@ const haikuSchema = new Schema({
         type: String,
         required: true,
         minlength: 1,
-        maxlength: 280,
+        maxlength: 300,
       },
       commentAuthor: {
-        type: String,
+        type: Schema.Types.ObjectId,
         required: true,
+        ref: "User"
       },
       createdAt: {
         type: Date,
@@ -38,6 +40,15 @@ const haikuSchema = new Schema({
       },
     },
   ],
+  likes: [
+    {
+      userId: {
+        type: Schema.Types.ObjectId,
+        required: false,
+        ref: "User"
+      }
+    }
+  ]
 });
 
 const Haiku = model('Haiku', haikuSchema);

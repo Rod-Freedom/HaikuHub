@@ -48,7 +48,8 @@ const resolvers = {
       return { token, user };
     },
     addHaiku: async (parent, { haikuText }, context) => {
-      if (context.user) {
+      if (context.user) { 
+        console.log(context.user)
         const haiku = await Haiku.create({
           haikuText,
           haikuAuthor: context.user.username,
@@ -110,6 +111,21 @@ const resolvers = {
             },
           },
           { new: true }
+        );
+      }
+      throw AuthenticationError;
+    },
+    addLike: async (parent, { haikuId }, context) => {
+      if (context.user) {
+        return Haiku.findOneAndUpdate(
+          { _id: haikuId },
+          {
+           $addToSet: {  likes: {userId: context.user._id}} 
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
         );
       }
       throw AuthenticationError;
