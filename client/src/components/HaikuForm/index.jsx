@@ -50,7 +50,7 @@ const HaikuForm = () => {
 
   return (
     <div>
-      <h3>COMPARTEME UN HAIKU BIEN CHILO?</h3>
+      <h3>GO AHEAD, SHARE A HAIKU WITH US!</h3>
 
       {Auth.loggedIn() ? (
         <>

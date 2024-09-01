@@ -8,15 +8,14 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
+    <header className="bg-white flex shadow h-min text-light mb-4 flex-row align-center w-full">
+      <div className="container flex flex-row justify-between align-center">
+        <div className="flex flex-initial">
           <Link className="text-light" to="/">
-            <h1 className="m-0">HAIKUS</h1>
+            <img src="src/assets/logo.png" width={350} />
           </Link>
-          <p className="m-0">ponte creativo con tus haikus</p>
         </div>
-        <div>
+        <div className='flex flex-end items-center'>
           {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
@@ -28,12 +27,12 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <button className="bg-red-700 hover:bg-red-500 text-white font-bold py-2 px-4 mx-4 rounded" to="/login">
                 Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              </button>
+              <button className="bg-red-700 hover:bg-red-500 text-white font-bold py-2 px-4 rounded" to="/signup">
                 Signup
-              </Link>
+              </button>
             </>
           )}
         </div>

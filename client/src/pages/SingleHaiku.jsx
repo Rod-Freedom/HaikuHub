@@ -26,7 +26,7 @@ const SingleHaiku = () => {
       <h3 className="card-header bg-dark text-light p-2 m-0">
         {haiku.haikuAuthor} <br />
         <span style={{ fontSize: '1rem' }}>
-          THIS IS A HAIKU {haiku.createdAt}
+          THIS HAIKU WAS CREATED ON {haiku.createdAt}
         </span>
       </h3>
       <div className="bg-light py-4">
