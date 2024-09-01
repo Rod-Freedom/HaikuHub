@@ -9,6 +9,7 @@ export const QUERY_USER = gql`
       haikus {
         _id
         haikuText
+        likes
         createdAt
       }
     }
@@ -22,6 +23,7 @@ export const QUERY_HAIKUS = gql`
       _id
       haikuText
       haikuAuthor
+      likes
       createdAt
     }
   }
@@ -33,11 +35,13 @@ export const QUERY_SINGLE_HAIKU = gql`
       _id
       haikuText
       haikuAuthor
+      likes
       createdAt
       comments {
         _id
         commentText
         commentAuthor
+        likes
         createdAt
       }
     }
@@ -54,6 +58,7 @@ export const QUERY_ME = gql`
         _id
         haikuText
         haikuAuthor
+        likes
         createdAt
       }
     }

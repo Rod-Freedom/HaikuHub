@@ -1,8 +1,5 @@
 import { gql } from '@apollo/client';
 
-
-// ME FALTA EL REMOVE HAIKU Y REMOVE COMMENT y REMOVE LIKE
-//LO SAQUÉ DE TYPE MUTATIONS EN TYPDEFS
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -37,7 +34,18 @@ export const ADD_HAIKU = gql`
       comments {
         _id
         commentText
+        likes
       }
+    }
+  }
+`;
+
+export const REMOVE_HAIKU = gql`
+  mutation removeHaiku($haikuId: ID!) {
+    removeHaiku(haikuId: $haikuId) {
+      _id
+      haikuText
+      haikuAuthor
     }
   }
 `;
@@ -52,15 +60,16 @@ export const ADD_COMMENT = gql`
       comments {
         _id
         commentText
+        likes
         createdAt
       }
     }
   }
 `;
 
-export const ADD_LIKE= gql`
-  mutation addLike($haikuId: ID!) {
-    addLike(haikuId: $haikuId) {
+export const REMOVE_COMMENT = gql`
+  mutation removeComment($haikuId: ID!, $commentId: ID!) {
+    removeComment(haikuId: $haikuId, commentId: $commentId) {
       _id
       haikuText
       haikuAuthor
@@ -68,8 +77,37 @@ export const ADD_LIKE= gql`
       comments {
         _id
         commentText
+        likes
         createdAt
       }
+    }
+  }
+`;
+
+export const UPDATE_HAIKU_LIKE = gql`
+  mutation updateHaikuLike($haikuId: ID!) {
+    updateHaikuLike(haikuId: $haikuId) {
+      _id
+      haikuText
+      haikuAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        likes
+        createdAt
+      }
+    }
+  }
+`;
+
+export const UPDATE_COMMENT_LIKE = gql`
+  mutation updateCommentLike($haikuId: ID!, $commentId: ID!) {
+    updateCommentLike(haikuId: $haikuId, commentId: $commentId) {
+        _id
+        commentText
+        likes
+        createdAt
     }
   }
 `;

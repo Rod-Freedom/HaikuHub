@@ -23,6 +23,7 @@ const CommentList = ({ comments = [] }) => {
                   </span>
                 </h5>
                 <p className="card-body">{comment.commentText}</p>
+                <div>Likes: {comment.likes.length}</div>
               </div>
             </div>
           ))}
