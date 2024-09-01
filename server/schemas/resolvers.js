@@ -116,7 +116,6 @@ const resolvers = {
       throw AuthenticationError;
     },
     updateHaikuLike: async (parent, { haikuId }, context) => {
-      console.log(context.user);
       if (context.user) {
         try {
           const haiku = await Haiku.findOne(
