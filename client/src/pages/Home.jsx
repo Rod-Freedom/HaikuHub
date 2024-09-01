@@ -24,7 +24,7 @@ const Home = () => {
           ) : (
             <HaikuList
               haikus={haikus}
-              title="UN TITULO QUE DIGA ALGO DE HAIKUS"
+              title="Get into the Haiku-verse here:"
             />
           )}
         </div>

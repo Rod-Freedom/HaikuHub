@@ -50,7 +50,7 @@ const HaikuForm = () => {
 
   return (
     <div>
-      <h3>GO AHEAD, SHARE A HAIKU WITH US!</h3>
+      <h2>GO AHEAD, SHARE A HAIKU WITH US!</h2>
 
       {Auth.loggedIn() ? (
         <>
@@ -62,22 +62,22 @@ const HaikuForm = () => {
             Character Count: {characterCount}/280
           </p>
           <form
-            className="flex-row justify-center justify-space-between-md align-center"
+            className="flex-row justify-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
+            <div className="w-full lg:w-1/2">
               <textarea
                 name="haikuText"
                 placeholder="Here's a new haiku..."
                 value={haikuText}
-                className="form-input w-100"
+                className="form-input w-full lg:w-1/2"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
             </div>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+              <button className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="submit">
                 Add Haiku
               </button>
             </div>
