@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.png';
 
 import Auth from '../../utils/auth';
 
@@ -12,7 +13,7 @@ const Header = () => {
       <div className="w-full px-10 flex flex-row justify-between align-center">
         <div className="flex flex-initial">
           <Link className="text-light" to="/">
-            <img src="src/assets/logo.png" width={350} />
+            <img src={logo} width={350} />
           </Link>
         </div>
         <div className='flex flex-end items-center'>
