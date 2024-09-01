@@ -65,18 +65,17 @@ const HaikuForm = () => {
             className="flex-row justify-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="w-full lg:w-1/2">
+            <div className="w-full">
               <textarea
                 name="haikuText"
                 placeholder="Here's a new haiku..."
                 value={haikuText}
-                className="form-input w-full lg:w-1/2"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                className="w-full"
                 onChange={handleChange}
               ></textarea>
             </div>
 
-            <div className="col-12 col-lg-3">
+            <div>
               <button className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="submit">
                 Add Haiku
               </button>
