@@ -8,8 +8,8 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-white flex shadow h-min text-light mb-4 flex-row align-center w-full">
-      <div className="container flex flex-row justify-between align-center">
+    <header className="bg-white flex shadow h-min text-light mb-4 flex-row align-center justify-center w-full">
+      <div className="w-full px-10 flex flex-row justify-between align-center">
         <div className="flex flex-initial">
           <Link className="text-light" to="/">
             <img src="src/assets/logo.png" width={350} />
@@ -27,12 +27,12 @@ const Header = () => {
             </>
           ) : (
             <>
-              <button className="bg-red-700 hover:bg-red-500 text-white font-bold py-2 px-4 mx-4 rounded" to="/login">
+              <Link className="bg-red-700 hover:bg-red-500 text-white font-bold py-2 px-4 mx-4 rounded" to="/login">
                 Login
-              </button>
-              <button className="bg-red-700 hover:bg-red-500 text-white font-bold py-2 px-4 rounded" to="/signup">
+              </Link>
+              <Link className="bg-red-700 hover:bg-red-500 text-white font-bold py-2 px-4 rounded" to="/signup">
                 Signup
-              </button>
+              </Link>
             </>
           )}
         </div>
