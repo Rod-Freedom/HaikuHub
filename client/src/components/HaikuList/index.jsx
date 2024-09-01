@@ -38,6 +38,9 @@ const HaikuList = ({
             <div className="card-body bg-light p-2">
               <p>{haiku.haikuText}</p>
             </div>
+            <div>
+              Likes: {haiku.likes != null ? haiku.likes.length : ""}
+            </div>
             <Link
               className="btn btn-primary btn-block btn-squared"
               to={`/haikus/${haiku._id}`}

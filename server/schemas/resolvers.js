@@ -115,24 +115,55 @@ const resolvers = {
       }
       throw AuthenticationError;
     },
-    addLike: async (parent, { haikuId }, context) => {
+    updateHaikuLike: async (parent, { haikuId }, context) => {
       console.log(context.user);
       if (context.user) {
-        return Haiku.findOneAndUpdate(
-          { _id: haikuId },
-          {
-            $addToSet: {
-              likes: context.user.username,
-            },
-          },
-          {
-            new: true,
-            runValidators: true,
+        try {
+          const haiku = await Haiku.findOne(
+            { _id: haikuId },
+          );
+          const isLiked = haiku.likes.findIndex((username) => username === context.user.username);
+          if (isLiked === -1) {
+            haiku.likes.push(context.user.username);
+
+          } else {
+            haiku.likes.splice(isLiked, 1);
           }
-        );
+
+          await haiku.save();
+
+          return haiku;
+        }
+        catch {
+          throw AuthenticationError;
+        }
       }
-      throw AuthenticationError;
     },
+
+    updateCommentLike: async (parent, { haikuId, commentId }, context) => {
+      if (context.user) {
+        try {
+          const haiku = await Haiku.findOne(
+            { _id: haikuId },
+          );
+          const comment = haiku.comments.id(commentId);
+          const isLiked = comment.likes.findIndex((username) => username === context.user.username);
+          if (isLiked === -1) {
+            comment.likes.push(context.user.username);
+
+          } else {
+            comment.likes.splice(isLiked, 1);
+          }
+
+          await haiku.save();
+
+          return comment;
+        }
+        catch {
+          throw AuthenticationError;
+        }
+      }
+    }
   },
 };
 

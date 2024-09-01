@@ -21,6 +21,7 @@ const typeDefs = `#graphql
     commentText: String
     commentAuthor: String
     createdAt: String
+    likes: [String]
   }
 
   type Auth {
@@ -43,7 +44,8 @@ const typeDefs = `#graphql
     addComment(haikuId: ID!, commentText: String!): Haiku
     removeHaiku(haikuId: ID!): Haiku
     removeComment(haikuId: ID!, commentId: ID!): Haiku
-    addLike(haikuId: ID!): Haiku
+    updateHaikuLike(haikuId: ID!): Haiku
+    updateCommentLike(haikuId: ID!, commentId: ID!): Comment
   }
 `;
 
