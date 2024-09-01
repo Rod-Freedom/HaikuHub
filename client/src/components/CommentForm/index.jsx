@@ -54,7 +54,7 @@ const CommentForm = ({ haikuId }) => {
             {error && <span className="ml-2">{error.message}</span>}
           </p>
           <form
-            className="flex-row justify-center justify-space-between-md align-center"
+            className="flex flex-row justify-center"
             onSubmit={handleFormSubmit}
           >
             <div className="col-12 col-lg-9">
@@ -62,7 +62,7 @@ const CommentForm = ({ haikuId }) => {
                 name="commentText"
                 placeholder="Add your comment..."
                 value={commentText}
-                className="form-input w-100"
+                className="w-full"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>

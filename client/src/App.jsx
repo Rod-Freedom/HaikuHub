@@ -1,4 +1,4 @@
-// import './App.css';
+import './root.css';
 import {
   ApolloClient,
   InMemoryCache,
@@ -38,9 +38,9 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className="flex flex-col justify-start items-center min-100-vh">
+      <div className="flex flex-col justify-between items-center h-full">
         <Header />
-        <div className="container">
+        <div className="flex flex-col w-full justify-start px-14 flex-grow">
           <Outlet />
         </div>
         <Footer />
