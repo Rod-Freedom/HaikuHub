@@ -90,6 +90,7 @@ export const UPDATE_HAIKU_LIKE = gql`
       _id
       haikuText
       haikuAuthor
+      likes
       createdAt
       comments {
         _id
