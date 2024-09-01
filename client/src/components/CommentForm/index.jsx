@@ -57,18 +57,17 @@ const CommentForm = ({ haikuId }) => {
             className=" flex-row justify-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="w-full lg:w-1/2">
+            <div className="w-full">
               <textarea
                 name="commentText"
                 placeholder="Add your comment..."
                 value={commentText}
                 className="w-full"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
               ></textarea>
             </div>
 
-            <div className="col-12 col-lg-3">
+            <div className="">
               <button className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="submit">
                 Add Comment
               </button>

@@ -57,7 +57,9 @@ const HaikuList = ({
       {haikus &&
         haikus.map((haiku) => (
     <div class="p-4 w-full lg:w-1/2 flex-grow">
-        <div key={haiku._id} class="flex rounded-lg h-full dark:bg-gray-200 bg-teal-400 p-8 flex-col">
+      
+        <div key={haiku._id} class="flex rounded-lg h-full dark:bg-gray-200 bg-teal-400 p-8 flex-col relative">
+        {Auth.loggedIn() && Auth.getProfile().data.username === haiku.haikuAuthor ? (<i id={haiku._id} type="button" onClick={handleRemove} class="fa-solid fa-circle-xmark absolute top-1 right-3"></i>) : ""}
             <div class="flex items-center mb-3">
                 <p class="text-black font-base">{showUsername ? (
                 <><Link
@@ -82,10 +84,8 @@ const HaikuList = ({
                 {haiku.haikuText}
                 </p>
                 <div>
-              Likes: {haiku.likes != null ? haiku.likes.length : ""}
+              {Auth.loggedIn() ? (<i id={haiku._id} type="button" onClick={handleLikeClick} class="fa-solid fa-thumbs-up mr-2"></i>) : ""} {haiku.likes != null ? haiku.likes.length : ""}
              </div>
-             {Auth.loggedIn() ? (<button id={haiku._id} type="button" onClick={handleLikeClick}>Like</button>) : ""}
-              {Auth.loggedIn() && Auth.getProfile().data.username === haiku.haikuAuthor ? (<button id={haiku._id} type="button" onClick={handleRemove}>Remove</button>) : ""}
 
                 <Link class="mt-3 font-bold hover:text-red-800 inline-flex items-center" to={`/haikus/${haiku._id}`}>Comment on this haiku
                     <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"

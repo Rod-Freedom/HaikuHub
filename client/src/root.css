@@ -26,3 +26,25 @@ a{
 a:hover{
     color: rgb(140, 29, 29);
 }
+
+textarea{
+    resize:none !important;
+    line-height: 1.5rem;
+    padding: 4px;
+    margin: 5px 0;
+}
+textarea:focus{
+    outline: none;
+    background-color: rgb(248, 248, 248);
+}
+
+i{
+    color:rgb(192, 25, 25);
+    font-size: 1.5rem;
+    padding: 10px 0;
+    width: fit-content;
+}
+
+i:hover{
+    scale: 1.1;
+}

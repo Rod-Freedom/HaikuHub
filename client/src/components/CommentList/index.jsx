@@ -61,15 +61,14 @@ const CommentList = ({ comments = [], haikuId, haikuAuthor }) => {
               <div className="p-3 bg-dark text-light">
                 <h5 className="card-header">
                   <Link to={`/profiles/${comment.commentAuthor}`}>{comment.commentAuthor}</Link> commented{' '}
-                  <span style={{ fontSize: '0.825rem' }}>
+                  <span>
                     on {comment.createdAt}
                   </span>
                 </h5>
-                <p className="card-body">{comment.commentText}</p>
+                <p className="font-bold text-lg">{Auth.loggedIn() && Auth.getProfile().data.username === comment.commentAuthor ? (<i id={comment._id} type="button" onClick={handleRemove} class="fa-solid fa-circle-xmark mr-3 items-center"></i>) : ""}{comment.commentText}</p>
                 <div>
-                  Likes: {comment.likes.length}
-                  {Auth.loggedIn() ? (<button id={comment._id} type="button" onClick={handleLikeClick}>Like</button>) : ""}
-                  {Auth.loggedIn() && Auth.getProfile().data.username === comment.commentAuthor ? (<button id={comment._id} type="button" onClick={handleRemove}>Remove</button>) : ""}
+                  {Auth.loggedIn() ? (<i id={comment._id} type="button" onClick={handleLikeClick} class="fa-solid fa-thumbs-up mr-2"></i>) : ""}{comment.likes.length}
+                  
                 </div>
               </div>
             </div>

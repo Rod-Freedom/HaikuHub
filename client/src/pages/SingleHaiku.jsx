@@ -63,20 +63,20 @@ const SingleHaiku = () => {
       </h3>
       <div className="bg-light py-4">
         <blockquote
-          className="p-4"
+          className="p-4 relative flex items-center bg-gray-200 rounded-lg"
           style={{
             fontSize: '1.5rem',
             fontStyle: 'italic',
-            border: '2px dotted #1a1a1a',
             lineHeight: '1.5',
           }}
         >
+          
           {haiku.haikuText}
+          {Auth.loggedIn() && Auth.getProfile().data.username === haiku.haikuAuthor ? (<i id={haiku._id} type="button" onClick={handleRemove} class="fa-solid fa-circle-xmark absolute right-6 "></i>) : ""}
         </blockquote>
         <div>
-          Likes: {haiku.likes.length}
-          {Auth.loggedIn() ? (<button id={haiku._id} type="button" onClick={handleLikeClick}>Like</button>) : ""}
-          {Auth.loggedIn() && Auth.getProfile().data.username === haiku.haikuAuthor ? (<button id={haiku._id} type="button" onClick={handleRemove}>Remove</button>) : ""}
+        {Auth.loggedIn() ? (<i id={haiku._id} type="button" onClick={handleLikeClick} class="fa-solid fa-thumbs-up mr-2"></i>) : ""}
+         {haiku.likes.length}
         </div>
       </div>
 

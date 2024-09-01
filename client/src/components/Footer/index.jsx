@@ -24,7 +24,7 @@ const Footer = () => {
           >
             ❤️
           </span>{' '}
-          by the HAIKUUUU team.
+          by Cross Guild Org
         </h4>
       </div>
     </footer>
