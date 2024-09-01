@@ -41,7 +41,7 @@ const CommentForm = ({ haikuId }) => {
 
   return (
     <div>
-      <h4>EN QUE HAIKU PIENSASSS?</h4>
+      <h4>Add a comment</h4>
 
       {Auth.loggedIn() ? (
         <>
@@ -54,10 +54,10 @@ const CommentForm = ({ haikuId }) => {
             {error && <span className="ml-2">{error.message}</span>}
           </p>
           <form
-            className="flex flex-row justify-center"
+            className=" flex-row justify-center"
             onSubmit={handleFormSubmit}
           >
-            <div className="col-12 col-lg-9">
+            <div className="w-full lg:w-1/2">
               <textarea
                 name="commentText"
                 placeholder="Add your comment..."
@@ -69,7 +69,7 @@ const CommentForm = ({ haikuId }) => {
             </div>
 
             <div className="col-12 col-lg-3">
-              <button className="btn btn-primary btn-block py-3" type="submit">
+              <button className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="submit">
                 Add Comment
               </button>
             </div>

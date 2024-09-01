@@ -40,7 +40,7 @@ function App() {
     <ApolloProvider client={client}>
       <div className="flex flex-col justify-between items-center h-full">
         <Header />
-        <div className="flex flex-col w-full justify-start px-14 flex-grow">
+        <div className="flex flex-col justify-start w-4/5 flex-grow">
           <Outlet />
         </div>
         <Footer />
