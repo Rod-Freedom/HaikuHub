@@ -76,7 +76,7 @@ const Signup = () => {
                   onChange={handleChange}
                 />
                 <button
-                  className="btn btn-block btn-primary"
+                  className="bg-red-700 hover:bg-red-500 text-white py-2 px-4 rounded w-full"
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
