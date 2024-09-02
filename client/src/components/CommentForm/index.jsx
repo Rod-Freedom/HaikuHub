@@ -47,14 +47,14 @@ const CommentForm = ({ haikuId }) => {
         <>
           <p
             className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
+              characterCount === 280 || error ? 'text-red-500' : ''
             }`}
           >
             Character Count: {characterCount}/280
             {error && <span className="ml-2">{error.message}</span>}
           </p>
           <form
-            className=" flex-row justify-center"
+            className="flex flex-col justify-center"
             onSubmit={handleFormSubmit}
           >
             <div className="w-full">
@@ -67,7 +67,7 @@ const CommentForm = ({ haikuId }) => {
               ></textarea>
             </div>
 
-            <div className="">
+            <div>
               <button className="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" type="submit">
                 Add Comment
               </button>

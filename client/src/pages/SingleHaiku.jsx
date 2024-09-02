@@ -27,6 +27,8 @@ const SingleHaiku = () => {
 
   const handleLikeClick = async (event) => {
     try {
+      if (!Auth.loggedIn()) return window.location.replace('/login');
+
       const { data } = await updateHaikuLike({
         variables: {
           haikuId: event.target.id,
@@ -75,7 +77,7 @@ const SingleHaiku = () => {
           {Auth.loggedIn() && Auth.getProfile().data.username === haiku.haikuAuthor ? (<i id={haiku._id} type="button" onClick={handleRemove} class="fa-solid fa-circle-xmark absolute right-6 "></i>) : ""}
         </blockquote>
         <div>
-        {Auth.loggedIn() ? (<i id={haiku._id} type="button" onClick={handleLikeClick} class="fa-solid fa-thumbs-up mr-2"></i>) : ""}
+        {(<i id={haiku._id} type="button" onClick={handleLikeClick} class="fa-solid fa-thumbs-up mr-2"></i>)}
          {haiku.likes.length}
         </div>
       </div>
@@ -83,7 +85,7 @@ const SingleHaiku = () => {
       <div className="my-5">
         <CommentList comments={haiku.comments} haikuId={haiku._id} haikuAuthor={haiku.haikuAuthor} />
       </div>
-      <div className="m-3 p-4" style={{ border: '1px dotted #1a1a1a' }}>
+      <div className="m-3 p-4 bg-gray-50 rounded-lg">
         <CommentForm haikuId={haiku._id} />
       </div>
     </div>

@@ -51,7 +51,7 @@ const Profile = () => {
         </div>
         {!userParam && (
           <div
-            className="mb-3 p-3"
+            className="mb-3 p-3 bg-slate-50 rounded-lg"
           >
             <HaikuForm />
           </div>

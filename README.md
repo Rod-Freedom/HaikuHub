@@ -1,4 +1,6 @@
-<br>
+<p align="center">
+  <img src="./assets/images/favicon.png" width="150">
+</p>
 
 <h1 align="center">HaikuHub</h1>
 
