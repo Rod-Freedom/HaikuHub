@@ -56,7 +56,7 @@ const HaikuForm = () => {
         <>
           <p
             className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
+              characterCount === 280 || error ? 'text-red-500' : ''
             }`}
           >
             Character Count: {characterCount}/280
@@ -81,7 +81,7 @@ const HaikuForm = () => {
               </button>
             </div>
             {error && (
-              <div className="col-12 my-3 bg-danger text-white p-3">
+              <div className="my-3 bg-red-500 text-white p-3">
                 {error.message}
               </div>
             )}
