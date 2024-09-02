@@ -1,6 +1,6 @@
 <br>
 
-<h1 align="center">HaikuHub</h3>
+<h1 align="center">HaikuHub</h1>
 
 <p align="center"><i>Get into the haiku-verse</i></p>
 
