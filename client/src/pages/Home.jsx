@@ -10,11 +10,10 @@ const Home = () => {
   const haikus = data?.haikus || [];
 
   return (
-    <main>
-      <div className="flex-row justify-center">
+    <main className='relative'>
+      <div className="flex flex-col justify-center">
         <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
+          className="col-12 col-md-10 mb-3 p-3 bg-slate-50 rounded-lg"
         >
           <HaikuForm />
         </div>
@@ -24,7 +23,7 @@ const Home = () => {
           ) : (
             <HaikuList
               haikus={haikus}
-              title="Get into the Haiku-verse here:"
+              title="Get into the Haiku-verse"
             />
           )}
         </div>

@@ -24,6 +24,8 @@ const HaikuList = ({
 
   const handleLikeClick = async (event) => {
     try {
+      if (!Auth.loggedIn()) return window.location.replace('/login');
+      
       const { data } = await updateHaikuLike({
         variables: {
           haikuId: event.target.id,
@@ -84,7 +86,7 @@ const HaikuList = ({
                 {haiku.haikuText}
                 </p>
                 <div>
-              {Auth.loggedIn() ? (<i id={haiku._id} type="button" onClick={handleLikeClick} class="fa-solid fa-thumbs-up mr-2"></i>) : ""} {haiku.likes != null ? haiku.likes.length : ""}
+              {(<i id={haiku._id} type="button" onClick={handleLikeClick} class="fa-solid fa-thumbs-up mr-2"></i>)} {haiku.likes != null ? haiku.likes.length : ""}
              </div>
 
                 <Link class="mt-3 font-bold hover:text-red-800 inline-flex items-center" to={`/haikus/${haiku._id}`}>Comment on this haiku

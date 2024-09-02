@@ -6,47 +6,55 @@
 
 * {
     font-family: Quicksand, sans-serif;
+    @apply transition-all;
 }
 
-h2{
+h2 {
     font-size: 1.5rem;
     font-weight: 700;
 }
-h3{
+
+h3 {
     font-size: 1.3rem;
     font-weight: 600;
 }
-h4{
+
+h4 {
     font-size: 1rem;
     font-weight: 500;
 }
 
-a{
+a {
     color:rgb(197, 23, 23);
 }
- 
-a:hover{
+
+a:hover {
     color: rgb(140, 29, 29);
 }
 
-textarea{
-    resize:none !important;
-    line-height: 1.5rem;
-    padding: 4px;
+textarea {
+    padding: 4px 10px;
     margin: 5px 0;
+    
+    @apply rounded-lg focus:bg-gray-100 bg-gray-50 resize-none;
 }
-textarea:focus{
+
+textarea:focus {
     outline: none;
-    background-color: rgb(248, 248, 248);
 }
 
-i{
-    color:rgb(192, 25, 25);
-    font-size: 1.5rem;
-    padding: 10px 0;
-    width: fit-content;
+i {
+    @apply text-red-700 text-2xl w-fit py-2.5 px-0;
 }
 
-i:hover{
+i:hover {
     scale: 1.1;
+}
+
+i:active {
+    scale: .9;
+}
+
+#footerIcon {
+    @apply h-10 hover:scale-105 active:scale-95;
 }
